@@ -5,7 +5,7 @@ const router = Router();
 
 
 router.get('/', controllers.getFactures);
-router.get('/:numeroFacture', controllers.getById)
+router.get('/:numeroFacture', controllers.getFacturesById);
 
 
 

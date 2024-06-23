@@ -7,16 +7,17 @@ const controllers = {
 //acceder a un element
 getFactures: ( req: Request, res: Response): void =>{
     res.send(factures).status(HttpCode.OK);
- }
-}
+ },
+
 
 //acceder a un element par id
-getById: (req: Request, res: Response) => {
-    const { id } = req.params
-    const one = factures.find(el => el.numeroFacture === id)
+getFacturesById: (req: Request, res: Response)  => {
+    const { numeroFacture } = req.params;
+    const one = factures.find(el => el.numeroFacture === numeroFacture)
     if (!one) return res.status(HttpCode.NOT_FOUND).json({msg: "cette facture n'existe pas"});
-    res.status(HttpCode.OK)
+    res.send(one)
+    
 }
-
+}
 
 export default controllers
